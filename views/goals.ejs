@@ -1,0 +1,41 @@
+<%- include("layouts/header") %>
+
+<title>Scheduled Sessions</title>
+</head>
+<div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-6">
+    <h2 class="text-2xl font-bold mb-4">Goals</h2>
+
+    <% if (user.role === "mentee") { %>
+        <!-- Add New Goal Form -->
+        <form action="/goals/add" method="POST" class="mb-6">
+            <input type="text" name="title" placeholder="Goal Title" required class="w-full p-2 border rounded mb-2">
+            <textarea name="description" placeholder="Goal Description" class="w-full p-2 border rounded mb-2"></textarea>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Goal</button>
+        </form>
+    <% } %>
+
+    <!-- Goal List -->
+    <ul>
+        <% goals.forEach(goal => { %>
+            <li class="border p-4 mb-2 rounded bg-gray-200">
+                <strong>Title:</strong> <%= goal.title %><br>
+                <strong>Description:</strong> <%= goal.description %><br>
+                <strong>Status:</strong> <%= goal.status %>
+
+                <% if (user.role === "mentor") { %>
+                    <!-- Mentor Update Goal Status -->
+                    <form action="/goals/update/<%= goal._id %>" method="POST" class="mt-2">
+                        <select name="status" class="p-2 border rounded">
+                            <option value="Not Started" <%= goal.status === "Not Started" ? "selected" : "" %>>Not Started</option>
+                            <option value="In Progress" <%= goal.status === "In Progress" ? "selected" : "" %>>In Progress</option>
+                            <option value="Completed" <%= goal.status === "Completed" ? "selected" : "" %>>Completed</option>
+                        </select>
+                        <button type="submit" class="bg-green-500 text-white px-2 py-1 rounded">Update</button>
+                    </form>
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
+</div>
+
+ 

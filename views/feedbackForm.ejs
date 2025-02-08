@@ -1,0 +1,10 @@
+<form action="/feedback/<%= session._id %>" method="POST" class="bg-white p-4 rounded shadow">
+      <label for="rating">Rating (1-5):</label>
+      <input type="number" name="rating" min="1" max="5" required class="border p-2 rounded w-full">
+      
+      <label for="comment">Comment:</label>
+      <textarea name="comment" required class="border p-2 rounded w-full"></textarea>
+      
+      <button type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Submit Feedback</button>
+  </form>
+  

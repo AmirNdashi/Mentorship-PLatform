@@ -1,0 +1,11 @@
+<h2 class="text-xl font-bold">Feedback</h2>
+<ul>
+  <% feedbacks.forEach(feedback => { %>
+    <li class="border p-4 mb-2 rounded bg-gray-200">
+      <strong>Session:</strong> <%= feedback.session.date.toDateString() %> <br>
+      <strong>By:</strong> <%= feedback.mentee.name %> <br>
+      <strong>Rating:</strong> <%= feedback.rating %> ⭐<br>
+      <strong>Comment:</strong> <%= feedback.comment %> 
+    </li>
+  <% }) %>
+</ul>
