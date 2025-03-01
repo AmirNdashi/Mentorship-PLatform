@@ -5,7 +5,7 @@
 
     <% if (user.role === "mentor") { %>
         <!-- Upload Form for Mentors -->
-        <form action="/resources/upload" method="POST" enctype="multipart/form-data" class="mb-5 p-4 bg-gray-100 rounded">
+        <form action="/resources/upload" method="POST" enctype="multipart/form-data" class="mb-5 p-4 bg-gray-300 rounded">
             <input type="text" name="title" placeholder="Resource Title" required class="p-2 border rounded w-full">
             <input type="file" name="file" class="p-2 border rounded w-full mt-2">
             <input type="text" name="link" placeholder="Or paste a link" class="p-2 border rounded w-full mt-2">

@@ -41,7 +41,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "Virtual-Mentorship-Platform/uploads", // Cloudinary folder
+    folder: "public/uploads/", // Cloudinary folder
     allowed_formats: ["pdf", "doc", "docx", "ppt", "pptx"], // Allowed file types
     resource_type: "raw", // Needed for non-image files
   },
