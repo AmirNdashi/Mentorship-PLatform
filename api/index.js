@@ -2,14 +2,14 @@ require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const flash = require("connect-flash");
-const passport = require("./config/passportConfig"); 
-const mongoose = require("./config/database");
-const authRoutes = require("./routes/authRoutes");
-const userRoutes = require("./routes/userRoutes");
-const sessionRoutes = require("./routes/sessionRoutes");
-const goalRoutes = require("./routes/goalRoutes");
-const resourceRoutes = require("./routes/resourceRoutes");
-const feedbackRoutes = require("./routes/feedbackRoutes");
+const passport = require("../config/passportConfig"); 
+const mongoose = require("../config/database");
+const authRoutes = require("../routes/authRoutes");
+const userRoutes = require("../routes/userRoutes");
+const sessionRoutes = require("../routes/sessionRoutes");
+const goalRoutes = require("../routes/goalRoutes");
+const resourceRoutes = require("../routes/resourceRoutes");
+const feedbackRoutes = require("../routes/feedbackRoutes");
 
 const app = express();
 
@@ -43,6 +43,9 @@ app.use("/goals", goalRoutes);
 app.use("/resources", resourceRoutes);
 app.use(express.static("public"));
 app.use("/feedback", feedbackRoutes);
+app.get("/test-static", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "test.html"));
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
